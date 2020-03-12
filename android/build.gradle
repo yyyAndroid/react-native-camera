@@ -65,8 +65,11 @@ android {
 }
 
 repositories {
-  google()
   jcenter()
+  mavenCentral()
+
+  google()
+  maven { url 'https://dl.bintray.com/noexceptionyes/maven' }
   maven { url "https://jitpack.io" }
   maven {
     // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
@@ -76,7 +79,6 @@ repositories {
 
 dependencies {
   def googlePlayServicesVisionVersion = safeExtGet('googlePlayServicesVisionVersion', safeExtGet('googlePlayServicesVersion', '17.0.2'))
-  implementation project(':zbarlib')
   implementation 'com.facebook.react:react-native:+'
   implementation "com.google.zxing:core:3.3.3"
   implementation "com.drewnoakes:metadata-extractor:2.11.0"
@@ -86,4 +88,5 @@ dependencies {
   implementation "androidx.legacy:legacy-support-v4:1.0.0"
   mlkitImplementation "com.google.firebase:firebase-ml-vision:${safeExtGet('firebase-ml-vision', '19.0.3')}"
   mlkitImplementation "com.google.firebase:firebase-ml-vision-face-model:${safeExtGet('firebase-ml-vision-face-model', '17.0.2')}"
+  implementation 'com.ahs:ahsZLib:1.0.0'
 }
