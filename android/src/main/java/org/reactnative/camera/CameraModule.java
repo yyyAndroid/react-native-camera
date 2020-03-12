@@ -220,9 +220,9 @@ public class CameraModule extends ReactContextBaseJavaModule {
                 
                 try {
                     cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                    if (cameraView.isCameraOpened()) {
-                        cameraView.pausePreview();
-                    }
+//                    if (cameraView.isCameraOpened()) {
+//                        cameraView.pausePreview();
+//                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -241,9 +241,9 @@ public class CameraModule extends ReactContextBaseJavaModule {
                 
                 try {
                     cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                    if (cameraView.isCameraOpened()) {
-                        cameraView.resumePreview();
-                    }
+//                    if (cameraView.isCameraOpened()) {
+//                        cameraView.resumePreview();
+//                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -261,11 +261,11 @@ public class CameraModule extends ReactContextBaseJavaModule {
       public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
           RNCameraView cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
           try {
-            if (cameraView.isCameraOpened()) {
-              cameraView.takePicture(options, promise, cacheDirectory);
-            } else {
-              promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-            }
+//            if (cameraView.isCameraOpened()) {
+//              cameraView.takePicture(options, promise, cacheDirectory);
+//            } else {
+//              promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//            }
         } catch (Exception e) {
           promise.reject("E_CAMERA_BAD_VIEWTAG", "takePictureAsync: Expected a Camera component");
         }
@@ -286,11 +286,11 @@ public class CameraModule extends ReactContextBaseJavaModule {
 
               try {
                   cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  if (cameraView.isCameraOpened()) {
-                      cameraView.record(options, promise, cacheDirectory);
-                  } else {
-                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                  }
+//                  if (cameraView.isCameraOpened()) {
+//                      cameraView.record(options, promise, cacheDirectory);
+//                  } else {
+//                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                  }
               } catch (Exception e) {
                   promise.reject("E_CAPTURE_FAILED", e.getMessage());
               }
@@ -309,9 +309,9 @@ public class CameraModule extends ReactContextBaseJavaModule {
 
               try {
                   cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  if (cameraView.isCameraOpened()) {
-                      cameraView.stopRecording();
-                  }
+//                  if (cameraView.isCameraOpened()) {
+//                      cameraView.stopRecording();
+//                  }
               } catch (Exception e) {
                   e.printStackTrace();
               }
@@ -330,15 +330,15 @@ public class CameraModule extends ReactContextBaseJavaModule {
               try {
                   cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
                   WritableArray result = Arguments.createArray();
-                  if (cameraView.isCameraOpened()) {
-                      Set<AspectRatio> ratios = cameraView.getSupportedAspectRatios();
-                      for (AspectRatio ratio : ratios) {
-                          result.pushString(ratio.toString());
-                      }
-                      promise.resolve(result);
-                  } else {
-                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                  }
+//                  if (cameraView.isCameraOpened()) {
+//                      Set<AspectRatio> ratios = cameraView.getSupportedAspectRatios();
+//                      for (AspectRatio ratio : ratios) {
+//                          result.pushString(ratio.toString());
+//                      }
+//                      promise.resolve(result);
+//                  } else {
+//                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                  }
               } catch (Exception e) {
                   e.printStackTrace();
               }
@@ -357,15 +357,15 @@ public class CameraModule extends ReactContextBaseJavaModule {
                 try {
                     cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
                     WritableArray result = Arguments.createArray();
-                    if (cameraView.isCameraOpened()) {
-                        SortedSet<Size> sizes = cameraView.getAvailablePictureSizes(AspectRatio.parse(ratio));
-                        for (Size size : sizes) {
-                            result.pushString(size.toString());
-                        }
-                        promise.resolve(result);
-                    } else {
-                        promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                    }
+//                    if (cameraView.isCameraOpened()) {
+//                        SortedSet<Size> sizes = cameraView.getAvailablePictureSizes(AspectRatio.parse(ratio));
+//                        for (Size size : sizes) {
+//                            result.pushString(size.toString());
+//                        }
+//                        promise.resolve(result);
+//                    } else {
+//                        promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                    }
                 } catch (Exception e) {
                     promise.reject("E_CAMERA_BAD_VIEWTAG", "getAvailablePictureSizesAsync: Expected a Camera component");
                 }

@@ -70,54 +70,54 @@ public class CameraViewManager extends ViewGroupManager<RNCameraView> {
 
   @ReactProp(name = "type")
   public void setType(RNCameraView view, int type) {
-    view.setFacing(type);
+//    view.setFacing(type);
   }
 
   @ReactProp(name = "ratio")
   public void setRatio(RNCameraView view, String ratio) {
-    view.setAspectRatio(AspectRatio.parse(ratio));
+//    view.setAspectRatio(AspectRatio.parse(ratio));
   }
 
   @ReactProp(name = "flashMode")
   public void setFlashMode(RNCameraView view, int torchMode) {
-    view.setFlash(torchMode);
+//    view.setFlash(torchMode);
   }
 
   @ReactProp(name = "exposure")
   public void setExposureCompensation(RNCameraView view, int exposure){
-    view.setExposureCompensation(exposure);
+//    view.setExposureCompensation(exposure);
   }
 
   @ReactProp(name = "autoFocus")
   public void setAutoFocus(RNCameraView view, boolean autoFocus) {
-    view.setAutoFocus(autoFocus);
+//    view.setAutoFocus(autoFocus);
   }
 
   @ReactProp(name = "focusDepth")
   public void setFocusDepth(RNCameraView view, float depth) {
-    view.setFocusDepth(depth);
+//    view.setFocusDepth(depth);
   }
 
   @ReactProp(name = "autoFocusPointOfInterest")
   public void setAutoFocusPointOfInterest(RNCameraView view, ReadableMap coordinates) {
     float x = (float) coordinates.getDouble("x");
     float y = (float) coordinates.getDouble("y");
-    view.setAutoFocusPointOfInterest(x, y);
+//    view.setAutoFocusPointOfInterest(x, y);
   }
 
   @ReactProp(name = "zoom")
   public void setZoom(RNCameraView view, float zoom) {
-    view.setZoom(zoom);
+//    view.setZoom(zoom);
   }
 
   @ReactProp(name = "whiteBalance")
   public void setWhiteBalance(RNCameraView view, int whiteBalance) {
-    view.setWhiteBalance(whiteBalance);
+//    view.setWhiteBalance(whiteBalance);
   }
 
   @ReactProp(name = "pictureSize")
   public void setPictureSize(RNCameraView view, String size) {
-    view.setPictureSize(size.equals("None") ? null : Size.parse(size));
+//    view.setPictureSize(size.equals("None") ? null : Size.parse(size));
   }
 
   @ReactProp(name = "barCodeTypes")
@@ -139,7 +139,7 @@ public class CameraViewManager extends ViewGroupManager<RNCameraView> {
 
   @ReactProp(name = "useCamera2Api")
   public void setUseCamera2Api(RNCameraView view, boolean useCamera2Api) {
-    view.setUsingCamera2Api(useCamera2Api);
+//    view.setUsingCamera2Api(useCamera2Api);
   }
 
   @ReactProp(name = "playSoundOnCapture")

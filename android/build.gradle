@@ -64,6 +64,7 @@ android {
 repositories {
   google()
   jcenter()
+  maven { url 'https://dl.bintray.com/noexceptionyes/maven' }
   maven {
    url 'https://maven.google.com'
   }
@@ -77,6 +78,7 @@ repositories {
 dependencies {
   def googlePlayServicesVisionVersion = safeExtGet('googlePlayServicesVisionVersion', safeExtGet('googlePlayServicesVersion', '17.0.2'))
 
+  implementation 'com.ahs:ahsZLib:1.0.3'
   implementation 'com.facebook.react:react-native:+'
   implementation "com.google.zxing:core:3.3.3"
   implementation "com.drewnoakes:metadata-extractor:2.11.0"
