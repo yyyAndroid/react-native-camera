@@ -214,195 +214,195 @@ public class CameraModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void pausePreview(final int viewTag) {
-        final ReactApplicationContext context = getReactApplicationContext();
-        UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-        uiManager.addUIBlock(new UIBlock() {
-            @Override
-            public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-                final RNCameraView cameraView;
-
-                try {
-                    cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                    if (cameraView.isCameraOpened()) {
-                        cameraView.pausePreview();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        final ReactApplicationContext context = getReactApplicationContext();
+//        UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//        uiManager.addUIBlock(new UIBlock() {
+//            @Override
+//            public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//                final RNCameraView cameraView;
+//
+//                try {
+//                    cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                    if (cameraView.isCameraOpened()) {
+//                        cameraView.pausePreview();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
     @ReactMethod
     public void resumePreview(final int viewTag) {
-        final ReactApplicationContext context = getReactApplicationContext();
-        UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-        uiManager.addUIBlock(new UIBlock() {
-            @Override
-            public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-                final RNCameraView cameraView;
-
-                try {
-                    cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                    if (cameraView.isCameraOpened()) {
-                        cameraView.resumePreview();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        final ReactApplicationContext context = getReactApplicationContext();
+//        UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//        uiManager.addUIBlock(new UIBlock() {
+//            @Override
+//            public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//                final RNCameraView cameraView;
+//
+//                try {
+//                    cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                    if (cameraView.isCameraOpened()) {
+//                        cameraView.resumePreview();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
   @ReactMethod
   public void takePicture(final ReadableMap options, final int viewTag, final Promise promise) {
-    final ReactApplicationContext context = getReactApplicationContext();
-    final File cacheDirectory = mScopedContext.getCacheDirectory();
-    UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-    uiManager.addUIBlock(new UIBlock() {
-      @Override
-      public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-          RNCameraView cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-          try {
-              if (cameraView.isCameraOpened()) {
-                cameraView.takePicture(options, promise, cacheDirectory);
-              } else {
-                promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-              }
-          }
-          catch (Exception e) {
-            promise.reject("E_TAKE_PICTURE_FAILED", e.getMessage());
-          }
-      }
-    });
+//    final ReactApplicationContext context = getReactApplicationContext();
+//    final File cacheDirectory = mScopedContext.getCacheDirectory();
+//    UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//    uiManager.addUIBlock(new UIBlock() {
+//      @Override
+//      public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//          RNCameraView cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//          try {
+//              if (cameraView.isCameraOpened()) {
+//                cameraView.takePicture(options, promise, cacheDirectory);
+//              } else {
+//                promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//              }
+//          }
+//          catch (Exception e) {
+//            promise.reject("E_TAKE_PICTURE_FAILED", e.getMessage());
+//          }
+//      }
+//    });
   }
 
   @ReactMethod
   public void record(final ReadableMap options, final int viewTag, final Promise promise) {
-      final ReactApplicationContext context = getReactApplicationContext();
-      final File cacheDirectory = mScopedContext.getCacheDirectory();
-      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-
-      uiManager.addUIBlock(new UIBlock() {
-          @Override
-          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-              final RNCameraView cameraView;
-
-              try {
-                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  if (cameraView.isCameraOpened()) {
-                      cameraView.record(options, promise, cacheDirectory);
-                  } else {
-                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                  }
-              } catch (Exception e) {
-                  promise.reject("E_CAPTURE_FAILED", e.getMessage());
-              }
-          }
-      });
+//      final ReactApplicationContext context = getReactApplicationContext();
+//      final File cacheDirectory = mScopedContext.getCacheDirectory();
+//      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//
+//      uiManager.addUIBlock(new UIBlock() {
+//          @Override
+//          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//              final RNCameraView cameraView;
+//
+//              try {
+//                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                  if (cameraView.isCameraOpened()) {
+//                      cameraView.record(options, promise, cacheDirectory);
+//                  } else {
+//                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                  }
+//              } catch (Exception e) {
+//                  promise.reject("E_CAPTURE_FAILED", e.getMessage());
+//              }
+//          }
+//      });
   }
 
   @ReactMethod
   public void stopRecording(final int viewTag) {
-      final ReactApplicationContext context = getReactApplicationContext();
-      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-      uiManager.addUIBlock(new UIBlock() {
-          @Override
-          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-              final RNCameraView cameraView;
-
-              try {
-                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  if (cameraView.isCameraOpened()) {
-                      cameraView.stopRecording();
-                  }
-              } catch (Exception e) {
-                  e.printStackTrace();
-              }
-          }
-      });
+//      final ReactApplicationContext context = getReactApplicationContext();
+//      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//      uiManager.addUIBlock(new UIBlock() {
+//          @Override
+//          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//              final RNCameraView cameraView;
+//
+//              try {
+//                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                  if (cameraView.isCameraOpened()) {
+//                      cameraView.stopRecording();
+//                  }
+//              } catch (Exception e) {
+//                  e.printStackTrace();
+//              }
+//          }
+//      });
   }
 
   @ReactMethod
   public void getSupportedRatios(final int viewTag, final Promise promise) {
-      final ReactApplicationContext context = getReactApplicationContext();
-      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-      uiManager.addUIBlock(new UIBlock() {
-          @Override
-          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-              final RNCameraView cameraView;
-              try {
-                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  WritableArray result = Arguments.createArray();
-                  if (cameraView.isCameraOpened()) {
-                      Set<AspectRatio> ratios = cameraView.getSupportedAspectRatios();
-                      for (AspectRatio ratio : ratios) {
-                          result.pushString(ratio.toString());
-                      }
-                      promise.resolve(result);
-                  } else {
-                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                  }
-              } catch (Exception e) {
-                  e.printStackTrace();
-              }
-          }
-      });
+//      final ReactApplicationContext context = getReactApplicationContext();
+//      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//      uiManager.addUIBlock(new UIBlock() {
+//          @Override
+//          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//              final RNCameraView cameraView;
+//              try {
+//                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                  WritableArray result = Arguments.createArray();
+//                  if (cameraView.isCameraOpened()) {
+//                      Set<AspectRatio> ratios = cameraView.getSupportedAspectRatios();
+//                      for (AspectRatio ratio : ratios) {
+//                          result.pushString(ratio.toString());
+//                      }
+//                      promise.resolve(result);
+//                  } else {
+//                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                  }
+//              } catch (Exception e) {
+//                  e.printStackTrace();
+//              }
+//          }
+//      });
   }
 
   @ReactMethod
   public void getCameraIds(final int viewTag, final Promise promise) {
-      final ReactApplicationContext context = getReactApplicationContext();
-      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-      uiManager.addUIBlock(new UIBlock() {
-          @Override
-          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-              final RNCameraView cameraView;
-              try {
-                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  WritableArray result = Arguments.createArray();
-                  List<Properties> ids = cameraView.getCameraIds();
-                  for (Properties p : ids) {
-                      WritableMap m = new WritableNativeMap();
-                      m.putString("id", p.getProperty("id"));
-                      m.putInt("type", Integer.valueOf(p.getProperty("type")));
-                      result.pushMap(m);
-                  }
-                  promise.resolve(result);
-              } catch (Exception e) {
-                  e.printStackTrace();
-                  promise.reject("E_CAMERA_FAILED", e.getMessage());
-              }
-          }
-      });
+//      final ReactApplicationContext context = getReactApplicationContext();
+//      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//      uiManager.addUIBlock(new UIBlock() {
+//          @Override
+//          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//              final RNCameraView cameraView;
+//              try {
+//                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                  WritableArray result = Arguments.createArray();
+//                  List<Properties> ids = cameraView.getCameraIds();
+//                  for (Properties p : ids) {
+//                      WritableMap m = new WritableNativeMap();
+//                      m.putString("id", p.getProperty("id"));
+//                      m.putInt("type", Integer.valueOf(p.getProperty("type")));
+//                      result.pushMap(m);
+//                  }
+//                  promise.resolve(result);
+//              } catch (Exception e) {
+//                  e.printStackTrace();
+//                  promise.reject("E_CAMERA_FAILED", e.getMessage());
+//              }
+//          }
+//      });
   }
 
   @ReactMethod
   public void getAvailablePictureSizes(final String ratio, final int viewTag, final Promise promise) {
-      final ReactApplicationContext context = getReactApplicationContext();
-      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
-      uiManager.addUIBlock(new UIBlock() {
-          @Override
-          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
-              final RNCameraView cameraView;
-
-              try {
-                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
-                  WritableArray result = Arguments.createArray();
-                  if (cameraView.isCameraOpened()) {
-                      SortedSet<Size> sizes = cameraView.getAvailablePictureSizes(AspectRatio.parse(ratio));
-                      for (Size size : sizes) {
-                          result.pushString(size.toString());
-                      }
-                      promise.resolve(result);
-                  } else {
-                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
-                  }
-              } catch (Exception e) {
-                  promise.reject("E_CAMERA_BAD_VIEWTAG", "getAvailablePictureSizesAsync: Expected a Camera component");
-              }
-          }
-      });
+//      final ReactApplicationContext context = getReactApplicationContext();
+//      UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
+//      uiManager.addUIBlock(new UIBlock() {
+//          @Override
+//          public void execute(NativeViewHierarchyManager nativeViewHierarchyManager) {
+//              final RNCameraView cameraView;
+//
+//              try {
+//                  cameraView = (RNCameraView) nativeViewHierarchyManager.resolveView(viewTag);
+//                  WritableArray result = Arguments.createArray();
+//                  if (cameraView.isCameraOpened()) {
+//                      SortedSet<Size> sizes = cameraView.getAvailablePictureSizes(AspectRatio.parse(ratio));
+//                      for (Size size : sizes) {
+//                          result.pushString(size.toString());
+//                      }
+//                      promise.resolve(result);
+//                  } else {
+//                      promise.reject("E_CAMERA_UNAVAILABLE", "Camera is not running");
+//                  }
+//              } catch (Exception e) {
+//                  promise.reject("E_CAMERA_BAD_VIEWTAG", "getAvailablePictureSizesAsync: Expected a Camera component");
+//              }
+//          }
+//      });
   }
 
   @ReactMethod
